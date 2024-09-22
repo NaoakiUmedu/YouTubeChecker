@@ -130,18 +130,18 @@ if __name__ == '__main__':
     keyfile.close()
 
     # キーワードごとに検索していく
-    yd = youtube_discoverer()
-    fh = filehandler()
+    discoverer = youtube_discoverer()
+    file_io = filehandler()
     for keyword in keywords:
         # 前回の検索結果を退避
-        fh.moveOldFile(keyword)
+        file_io.moveOldFile(keyword)
         # 検索を実行する
-        vinfos = yd.getVideoInfos(yd.discoverKeyword(keyword))
+        videos = discoverer.getVideoInfos(discoverer.discoverKeyword(keyword))
         # 今回の検索結果を保存
-        fh.writeVideoInfoFile(keyword, vinfos)
+        file_io.writeVideoInfoFile(keyword, videos)
 
         # 前回と今回の検索結果と比較
-        diffs = fh.checkDiff(keyword)
+        diffs = file_io.checkDiff(keyword)
         if diffs:
             print("★★★ 検索キーワード[" + keyword + "] 更新あり! ★★★")
             for diff in diffs:
