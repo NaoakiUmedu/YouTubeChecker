@@ -121,9 +121,7 @@ if __name__ == '__main__':
     # 検索したいキーワード
     keywords = [
         'Kenneth Hesketh',
-        'Patrick Hiketick',
-        'Aemored Core 6 RTA',
-        'Brahms Schoenberg Piano Quartet No.1'
+        'Patrick Hiketick'
     ]
 
     # 認証情報の設定
